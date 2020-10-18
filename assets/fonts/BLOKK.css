@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "BLOKK";
+  src: url("BLOKKNeue-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.is-blokk,
+.is-blokk *:not([class*="fa-"]):not([class*="mdi"]):not([class*="oi"]):not([class*="ion-"]):not(.reset-blokk) {
+  font-family: "BLOKK" !important;
+}

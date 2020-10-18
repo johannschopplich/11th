@@ -8,8 +8,7 @@ module.exports = {
     layout: ({ page, layout }) => {
       if (layout) return layout
 
-      // Let's find if this content is in a collection folder
-      // (a root folder without a `_` prefix)
+      // Check if part of a collection folder (root folder without a `_` prefix)
       const folderRegex = new RegExp(`^./${config.dir.src}/([^_][^/]+)/.*$`)
       const matches = page.inputPath.match(folderRegex)
 

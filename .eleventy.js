@@ -10,7 +10,8 @@ module.exports = function (eleventyConfig) {
 
   // Eleventy configuration
   eleventyConfig
-    .addPassthroughCopy(path.join(config.dir.src, '**/*.{jpg,jpeg,png,pdf}'))
+    .addPassthroughCopy(path.join(config.dir.src, '**/*.{jpg,jpeg,png}'))
+    .addPassthroughCopy(path.join(config.dir.assets, 'fonts'))
     .addPassthroughCopy(path.join(config.dir.assets, 'img'))
 
   eleventyConfig.addWatchTarget(path.join(config.dir.assets, 'js'))
