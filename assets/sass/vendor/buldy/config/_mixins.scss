@@ -1,0 +1,71 @@
+$fluid-min-width: 320px !default;
+$fluid-max-width: 1280px !default;
+
+// Linearly scale CSS properties with units based on the viewport
+// @see https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+@mixin fluid-scale($min, $max, $property: font-size) {
+  $slope: ($max - $min) / ($fluid-max-width - $fluid-min-width);
+  $yAxisIntersection: -$fluid-min-width * $slope + $min;
+  $preferredValue: $yAxisIntersection + " + " + $slope * 100 + "vw";
+
+  & {
+    #{$property}: #{$min};
+
+    @supports (font-size: clamp(1rem, 2vw, 2rem)) {
+      #{$property}: clamp(#{$min}, #{$preferredValue}, #{$max});
+    }
+  }
+}
+
+@mixin control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  box-shadow: none;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+%control {
+  @include control;
+}
+
+@mixin block {
+  &:not(:last-child) {
+    margin-bottom: var(--component-spacer);
+  }
+}
+
+%block {
+  @include block;
+}
+
+@mixin unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+%unselectable {
+  @include unselectable;
+}
+
+@mixin transition($transition...) {
+  @if length($transition) == 0 {
+    transition: all 0.2s ease-in-out;
+  } @else {
+    transition: $transition;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}

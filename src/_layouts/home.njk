@@ -1,0 +1,23 @@
+---
+layout: base
+---
+
+<main>
+  <div class="box" data-theme="light">
+    <section class="content">
+      <h1 class="title text-4 mb-m">
+        {{ title }}
+      </h1>
+
+      {{ content | safe }}
+    </section>
+  </div>
+
+  <div class="box" data-theme="light">
+    <h1 class="title text-4 mb-m">
+      Content Placeholder
+    </h1>
+
+    <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 20rem;" aria-hidden="true"><path d="M.5 0v14.5H15M5 2.5H2m6 3H3m5 3H5m10 3H8" stroke="var(--color-accent)"></path></svg>
+  </div>
+</main>

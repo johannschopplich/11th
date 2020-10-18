@@ -1,0 +1,25 @@
+.unselectable {
+  @extend %unselectable;
+}
+
+.contained {
+  object-fit: contain !important;
+}
+
+.covered {
+  object-fit: cover !important;
+}
+
+.rounded {
+  border-radius: var(--radius);
+}
+
+.span-fullwidth {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.centered-content {
+  display: grid;
+  place-items: center;
+}

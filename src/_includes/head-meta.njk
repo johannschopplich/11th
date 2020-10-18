@@ -1,0 +1,42 @@
+{% set currentUrl = site.url + page.url %}
+{% set pageTitle = title + ' – ' + site.title %}
+{% set pageDescription = string.truncate(site.description) %}
+{% set pageImage = site.image %}
+
+{% if metaTitle %}
+  {% set pageTitle = metaTitle %}
+{% endif %}
+
+{% if description %}
+  {% set pageDescription = string.truncate(description) %}
+{% endif %}
+
+{% if metaDescription %}
+  {% set pageDescription = string.truncate(metaDescription) %}
+{% endif %}
+
+{% if metaImage %}
+  {% set pageImage = metaImage %}
+{% endif %}
+
+<title>{{ pageTitle }}</title>
+<link rel="canonical" href="{{ currentUrl }}">
+
+<meta name="description" content="{{ pageDescription }}">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ currentUrl }}">
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ pageDescription }}">
+<meta property="og:image" content="{{ pageImage | url }}">
+<meta property="og:image:alt" content="Vorschaubild für {{ site.title }}">
+
+<meta name="twitter:url" content="{{ currentUrl }}">
+<meta name="twitter:title" content="{{ pageTitle }}">
+<meta name="twitter:description" content="{{ pageDescription }}">
+<meta name="twitter:image" content="{{ pageImage | url }}">
+<meta name="twitter:image:alt" content="Vorschaubild für {{ site.title }}">
+
+{% if site.author.twitter %}
+  <meta name="twitter:creator" content="@{{ site.author.twitter | replace('@', '') }}">
+{% endif %}

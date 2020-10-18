@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% include "head-meta.njk" %}
+
+  <link rel="icon" href="/{{ config.dir.assets }}/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/{{ config.dir.assets }}/img/apple-touch-icon.png" sizes="180x180">
+  <link href="{{ utils.assetPath('css/main*.css') }}" rel="stylesheet">
+
+  {% block head %}
+  {% endblock %}
+</head>
+<body data-template="{{ layout }}">
+
+  {% include 'header.njk' %}
+  {% block content %}
+    {{ content | safe }}
+  {% endblock content %}
+
+{% block foot %}
+{% endblock %}
+
+<script src="{{ utils.assetPath('js/main*.js') }}" type="module"></script>
+
+</body>
+</html>

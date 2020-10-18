@@ -1,0 +1,13 @@
+<header>
+  <div class="box" data-theme="light">
+    <p class="title text-4">{{ site.title }}</p>
+
+    <nav>
+      <ul class="h-stacked">
+        {%- for page in collections.all -%}
+          <li><a href="{{ page.url }}">{{ page.data.title }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  </div>
+</header>
